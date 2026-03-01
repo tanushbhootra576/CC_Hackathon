@@ -43,6 +43,7 @@
 ### Frontend
 
 - React 18 + Vite 7, Tailwind CSS 4, React Router DOM 6, Axios, Socket.IO Client, React-Leaflet, lucide-react icons
+  - Cloudinary (images served from Cloudinary via backend)
 
 ### Backend
 
@@ -95,6 +96,8 @@ cd client
 npm install
 npm run dev
 
+Note: The frontend reads the backend base URL from `client/.env` using `VITE_BACKEND_URL` (defaults to `http://localhost:5000`). See Environment Setup below.
+
 # Create government account
 curl -X POST http://localhost:5000/api/auth/create-gov \
   -H "Content-Type: application/json" \
@@ -118,6 +121,20 @@ JWT_EXPIRES_IN=7d
 PORT=5000
 CLIENT_URL=http://localhost:5173
 GEMINI_API_KEY=optional_for_ai_features
+```
+
+Cloudinary configuration (add these to `backend/.env`):
+
+```env
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+Client environment (create `client/.env`):
+
+```env
+VITE_BACKEND_URL=http://localhost:5000
 ```
 
 ---
@@ -151,7 +168,7 @@ GEMINI_API_KEY=optional_for_ai_features
 | MongoDB connection fails | Check `MONGO_URI` in `.env`                |
 | CORS errors              | Ensure `CLIENT_URL` matches frontend port  |
 | Socket.IO not connecting | Verify backend/frontend use same port      |
-| Images not uploading     | Create `backend/uploads/issues/` directory |
+| Images not uploading     | Ensure Cloudinary env vars are set in `backend/.env` and restart the backend. For legacy local uploads ensure `uploads/` exists if still used. |
 | Map doesn't show tiles   | Import Leaflet CSS in `IssueMap.jsx`       |
 
 ---
