@@ -14,6 +14,8 @@
 - [Environment Setup](#environment-setup)
 - [API Endpoints](#api-endpoints-quick-reference)
 - [Troubleshooting](#troubleshooting)
+ - [Screenshots](#screenshots)
+ - [Demo & Presentation](#demo--presentation)
 
 ---
 
@@ -21,20 +23,20 @@
 
 | Feature                        | Description                                                                                               |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------- |
-| **📸 Photo Reports**           | Citizens capture infrastructure issues with GPS location, category, and description                       |
-| **🤖 AI Verification**         | Image validation and automatic issue categorization                                                       |
-| **📍 Smart Geo-Clustering**    | Automatically groups similar reports within 100m radius into hotspots, eliminating duplicates             |
-| **⚡ Priority Scoring**        | Issues ranked by urgency: cluster size, age, upvotes, severity                                            |
-| **🗺️ Interactive Map**         | Live map visualization with custom markers for each issue cluster                                         |
-| **🔔 Real-Time Notifications** | WebSocket-powered instant updates on issue status changes via Socket.IO                                   |
-| **👥 User Profiles**           | Separate profile pages for citizens (track reported issues) and government (view managed issues)          |
-| **📊 Government Dashboard**    | Command center to manage, prioritize, reassign, and resolve issues with bulk actions                      |
-| **🎯 Status Tracking**         | Transparent issue timeline with full audit trail of all status changes                                    |
-| **✅ Issue Resolution**        | Government can mark issues resolved, automatically notify all affected citizens with confetti celebration |
-| **🔐 JWT Authentication**      | Stateless auth with role-based access control (citizen/government)                                        |
-| **📋 Role-Based Access**       | Citizen and Government portals with separate views and permissions                                        |
-| **💾 File Upload**             | Multer-powered image uploads with validation and secure storage                                           |
-| **🏠 Responsive Design**       | Mobile-first UI optimized for all devices using Tailwind CSS                                              |
+| ** Photo Reports**           | Citizens capture infrastructure issues with GPS location, category, and description                       |
+| ** AI Verification**         | Image validation and automatic issue categorization                                                       |
+| ** Smart Geo-Clustering**    | Automatically groups similar reports within 100m radius into hotspots, eliminating duplicates             |
+| ** Priority Scoring**        | Issues ranked by urgency: cluster size, age, upvotes, severity                                            |
+| ** Interactive Map**         | Live map visualization with custom markers for each issue cluster                                         |
+| ** Real-Time Notifications** | WebSocket-powered instant updates on issue status changes via Socket.IO                                   |
+| ** User Profiles**           | Separate profile pages for citizens (track reported issues) and government (view managed issues)          |
+| ** Government Dashboard**    | Command center to manage, prioritize, reassign, and resolve issues with bulk actions                      |
+| ** Status Tracking**         | Transparent issue timeline with full audit trail of all status changes                                    |
+| ** Issue Resolution**        | Government can mark issues resolved, automatically notify all affected citizens with confetti celebration |
+| ** JWT Authentication**      | Stateless auth with role-based access control (citizen/government)                                        |
+| ** Role-Based Access**       | Citizen and Government portals with separate views and permissions                                        |
+| ** File Upload**             | Multer-powered image uploads with validation and secure storage                                           |
+| ** Responsive Design**       | Mobile-first UI optimized for all devices using Tailwind CSS                                              |
 
 ---
 
@@ -67,6 +69,15 @@
 - **Issue Management** — Detailed issue view with reassignment, status updates, bulk actions
 - **Live Map** — Interactive map showing all issue clusters with real-time updates
 - **Government Profile** — Portal stats including total issues, resolved count, resolution rate, issue list
+
+### Gallery
+
+<p align="center">
+  <img src="client/public/screenshots/Screenshot from 2026-02-28 17-56-15.png" alt="Landing" width="300" />
+  <img src="client/public/screenshots/Screenshot from 2026-03-01 18-58-25.png" alt="Report Issue" width="300" />
+  <img src="client/public/screenshots/Screenshot from 2026-03-01 19-07-48.png" alt="Citizen Dashboard" width="300" />
+  <img src="client/public/screenshots/Screenshot from 2026-03-01 19-08-40.png" alt="Issue Detail" width="300" />
+</p>
 
 ---
 
@@ -108,18 +119,7 @@ curl -X POST http://localhost:5000/api/auth/create-gov \
 # Government: http://localhost:5173/login
 ```
 
----
 
-## Presentation (PPT)
-
-We prepared a short presentation for demos and judges. View or edit the slide deck in Canva:
-
-- Canva link: https://www.canva.com/design/DAHCtHLTChU/UH_gHSeSxJY1Isyv1e5cKQ/edit?utm_content=DAHCtHLTChU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
-H
-
-
----
 
 ## Environment Setup
 
@@ -218,13 +218,17 @@ MongoDB
 
 ---
 
-## License
 
-MIT
 
----
 
 ## Support
 
 For issues or questions, open a GitHub issue or contact the team.
 | **IoT as Socket.IO broadcast vs stored records** | IoT ghost reports are broadcast-only signals — not stored in MongoDB — to keep the demonstration clean. In production, sensor readings would create real issue documents via the same `POST /api/issues` flow, requiring no frontend changes beyond swapping the source. |
+
+## Demo & Presentation
+
+- **Demo video:** [Watch the demo video](https://drive.google.com/file/d/1PGxFAuCFJuLhGEp5MuZfKBpRvgh3_2o7/view?usp=sharing)
+- **Presentation (PPT):** [Open the project presentation](https://drive.google.com/file/d/1SnqoXMkdEb1A9Z4SH0A2Aw6QRQzH2QV2/view?usp=sharing)
+
+Note: Google Drive files are linked — GitHub will not embed Drive-hosted videos inline. To embed a playable video, host an MP4 in the repo or upload the video to YouTube and use the YouTube embed/link.
